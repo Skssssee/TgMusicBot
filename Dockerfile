@@ -1,20 +1,17 @@
-# Use official Python image
-FROM python:3.12-slim
+FROM python:3.13-slim
 
-# Set working directory
 WORKDIR /app
 
-# Copy requirements
-COPY requirements.txt .
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ffmpeg \
+    git \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
 
-# Install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir uv
 
-# Copy the rest of the bot
-COPY . .
+COPY . /app/
 
-# Expose the port for Render (Flask)
-EXPOSE 10000
+RUN uv pip install -e . --system
 
-# Start command
-CMD ["python3", "bot_runner.py"]
+CMD ["start"]
