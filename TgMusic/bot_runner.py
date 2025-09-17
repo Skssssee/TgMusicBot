@@ -1,7 +1,7 @@
 import os
 import threading
 from flask import Flask
-from bot import main  # Your main bot function
+from bot import main  # Your bot's main function
 
 # Minimal Flask server to open port
 app = Flask(__name__)
