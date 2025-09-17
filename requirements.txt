@@ -1,0 +1,5 @@
+pytdbot==1.0.0
+cachetools
+python-dotenv
+flask
+ffmpeg-python
