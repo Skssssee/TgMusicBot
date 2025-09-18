@@ -41,16 +41,16 @@ class BotConfig:
         # Optional Settings
         self.PROXY: Optional[str] = os.getenv("PROXY")
         self.DEFAULT_SERVICE: str = os.getenv("DEFAULT_SERVICE", "youtube").lower()
-        self.MIN_MEMBER_COUNT: int = self._get_env_int("MIN_MEMBER_COUNT", 50)
+        self.MIN_MEMBER_COUNT: int = self._get_env_int("MIN_MEMBER_COUNT", 1)
         self.MAX_FILE_SIZE: int = self._get_env_int("MAX_FILE_SIZE", 500 * 1024 * 1024)  # 500MB default
 
         self.DOWNLOADS_DIR: Path = Path(os.getenv("DOWNLOADS_DIR", "database/music"))
 
         self.SUPPORT_GROUP: str = os.getenv(
-            "SUPPORT_GROUP", "https://t.me/GuardxSupport"
+            "SUPPORT_GROUP", "https://t.me/jasminemusicgc"
         )
         self.SUPPORT_CHANNEL: str = os.getenv(
-            "SUPPORT_CHANNEL", "https://t.me/FallenProjects"
+            "SUPPORT_CHANNEL", "https://t.me/jasminemusicgc"
         )
 
         self.START_IMG: str = os.getenv(
@@ -60,7 +60,7 @@ class BotConfig:
         self.IGNORE_BACKGROUND_UPDATES: bool = self._get_env_bool(
             "IGNORE_BACKGROUND_UPDATES", True
         )
-        self.AUTO_LEAVE: bool = self._get_env_bool("AUTO_LEAVE", False)
+        self.AUTO_LEAVE: bool = self._get_env_bool("AUTO_LEAVE", TRUE)
 
         # Cookies
         self.COOKIES_URL: list[str] = self._process_cookie_urls(
